@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Noto Sans Bengali', 'Segoe UI', system-ui, sans-serif;
+}
+
+/* Android/iOS নচ ও স্ট্যাটাসবারের নিচে কনটেন্ট চাপা পড়া ঠেকাতে (মোবাইল অ্যাপে) */
+body {
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+main > * {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* প্রিন্ট মোড — শুধু রিপোর্ট কার্ড/প্রিন্টযোগ্য অংশ দেখাবে, সাইডবার/টপবার লুকাবে */
+@media print {
+  aside, header {
+    display: none !important;
+  }
+  main {
+    padding: 0 !important;
+    overflow: visible !important;
+  }
+  body {
+    background: white !important;
+  }
+}
