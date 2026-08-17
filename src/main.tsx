@@ -6,10 +6,13 @@ import { StatusBar, Style } from "@capacitor/status-bar";
 import { SplashScreen } from "@capacitor/splash-screen";
 import "./index.css";
 import App from "./App";
+import AppGate from "./components/AppGate";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <App />
+    <AppGate>
+      <App />
+    </AppGate>
   </StrictMode>
 );
 
